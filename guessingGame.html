@@ -1,89 +1,124 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        *{
+        * {
             background-image: radial-gradient(circle, #56205d 0%, #2e5555 100%);
-            text-align: center;       
-            color:rgb(222, 51, 222);
+            text-align: center;
+            color: rgb(222, 51, 222);
         }
-        .main{
-            /* background-image: url(img.png); */
-            height: 450px;
-            width:500px;
+
+        .main {
+            height: 490px;
+            width: 500px;
             margin: auto;
-            margin-top: 80px;
-            padding: 20px;
+            margin-top: 30px;
+            padding: 10px;
             box-shadow: 0 0 30px rgba(39, 37, 38, 0.338);
             border-radius: 10px;
         }
-        .guess{
-            font-size: 40px;   
+
+        .guess {
+            font-size: 40px;
         }
-        .input{
+
+        .input {
             margin: 10px;
             padding: 5px;
             border-radius: 6px;
-            box-shadow:0 0 30px rgba(39, 37, 38, 0.338) ;
+            box-shadow: 0 0 30px rgba(39, 37, 38, 0.338);
+            background-image: linear-gradient(to right, #d3cdd4, #9acbd1);
         }
-        .btn{
+
+        .btn {
+            background-image: linear-gradient(to right, #d3c3d6, #9acbd1);
+            border-radius: 5px;
             margin: 15px;
             padding: 10px;
-            border-radius: 6px;
-            box-shadow:0 0 30px rgba(39, 37, 38, 0.338) ;
+            transition: all 0.4s ease;
+            font-weight: bold;
+        }
+
+        .btn:hover {
+            background-image: linear-gradient(to right, #6c5071, #9acbd1);
+            cursor: pointer;
+        }
+
+        .img {
+            height: 80px;
+            width: 200px;
+            margin: auto;
         }
     </style>
 </head>
+
 <body>
-    <h1 class="guess">WELCOME TO GUESSING GAME <img src="https://www.gamesbrief.com/assets/2019/04/questions.jpg" alt="" height="60px" class="image"></h1>
+    <h1 class="guess">WELCOME TO GUESSING GAME <img src="https://www.gamesbrief.com/assets/2019/04/questions.jpg" alt=""
+            height="60px" class="image"></h1>
     <h2>I am computer and I am thinking of a number between 1 and 100. Can you guess what it is? Let's see!!!</h2>
     <div class="main">
         <form id="tempCalc" onsubmit="findNum(); return false">
-    <h2 class="class2">Let's begin !</h2>
-    <img src="data:image/jpeg;base64,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" alt="" height="250px" width="350px" >
-    <input type="text" placeholder="Type you number" class="input" id="guessField">
-    <button type="submit" class="btn">Submit</button>
-    <input type="button" name="reset_form" value="Play Again" class="btn" onclick="this.form.reset(); newFunction(); changenum();">
+            <h2 class="class2">Let's begin !</h2>
+            <img src="data:image/jpeg;base64,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"
+                alt="" height="250px" width="350px">
+            <input type="text" placeholder="Type you number" class="input" id="guessField">
+            <button type="submit" class="btn">Submit</button>
+            <input type="button" name="reset_form" value="Play Again" class="btn"
+                onclick="this.form.reset(); newFunction(); changenum();">
 
-    <br>
-    <span id="resultContainer"></span>
-</form>
+            <br>
+            <span id="resultContainer"></span>
+        </form>
     </div>
 
     <script type="text/javascript">
- 
+
         let y = Math.floor(Math.random() * 100) + 1;
         let guess = 1;
-        function newFunction(){
-            document.getElementById("resultContainer").innerHTML=``; 
-      }
-      console.log('Random Number',y);
-        function changenum(){
+        function newFunction() {
+            document.getElementById("resultContainer").innerHTML = ``;
+        }
+        console.log('Random Number', y);
+        function changenum() {
             y = Math.floor(Math.random() * 100) + 1;
             guess = 1;
-            console.log('Random Number',y);
+            console.log('Random Number', y);
         }
-        function findNum() { 
+        function findNum() {
             let x = document.getElementById("guessField").value;
-            document.getElementById("resultContainer").innerHTML=``; 
- 
-            if (x == y) {
-                document.getElementById("resultContainer").innerHTML=` CONGRATULATIONS!!! YOU GUESSED IT RIGHT IN ${guess}  GUESS`;         
+            document.getElementById("resultContainer").innerHTML = ``;
+            if (x == "") {
+                document.getElementById("resultContainer").innerHTML = `PLEASE ENTER A NUMBER!!`;
             }
- 
-            /* If guessed number is greater than actual number*/
+
+            else if (x == y) {
+                yaGetBanner();
+                document.getElementById("resultContainer").innerHTML += ` <br> CONGRATULATIONS!!! YOU GUESSED IT RIGHT IN ${guess}  GUESS`;
+            }
             else if (x > y) {
+                yaGetBanner2();
                 guess++;
-                document.getElementById("resultContainer").innerHTML=` TRY A SMALLER NUMBER`;
+                document.getElementById("resultContainer").innerHTML += ` <br>TRY A SMALLER NUMBER`;
             }
             else {
+                yaGetBanner2();
                 guess++;
-                document.getElementById("resultContainer").innerHTML=`TRY A LARGER NUMBER`;
+                document.getElementById("resultContainer").innerHTML += `<br>TRY A LARGER NUMBER`;
             }
+        }
+        function yaGetBanner2() {
+            var e2 = document.getElementById("resultContainer");
+            e2.innerHTML = "<img src=\'image.png' class=\"img\">";
+        }
+        function yaGetBanner() {
+            var el = document.getElementById("resultContainer");
+            el.innerHTML = "<img src=\'https://cdn.vectorstock.com/i/preview-1x/06/00/woohoo-neon-sign-on-brick-wall-background-vector-47290600.webp' class=\"img\">";
         }
     </script>
 </body>
+
 </html>
